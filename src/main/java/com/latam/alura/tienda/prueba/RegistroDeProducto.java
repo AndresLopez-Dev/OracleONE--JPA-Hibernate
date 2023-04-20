@@ -1,7 +1,6 @@
 package com.latam.alura.tienda.prueba;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 
@@ -16,17 +15,17 @@ import com.latam.alura.utils.JPAUtils;
 public class RegistroDeProducto {
 
 	public static void main(String[] args) {
-		registrarProducto();
-		EntityManager em = JPAUtils.getEntityManager();
-		
-		ProductoDAO productoDao = new ProductoDAO(em);
-		Producto producto = productoDao.consultaPorId(1l);
-		
-		System.out.println(producto.getNombre());
-		
-//		List<Producto> productos = productoDao.consultaPorNombreDeCategoria("CELULARES");
-		BigDecimal precio = productoDao.consultarPrecioPorNombreDeProducto("Samsung");
-		System.out.println(precio);
+//		registrarProducto();
+//		EntityManager em = JPAUtils.getEntityManager();
+//		
+//		ProductoDAO productoDao = new ProductoDAO(em);
+//		Producto producto = productoDao.consultaPorId(1l);
+//		
+//		System.out.println(producto.getNombre());
+//		
+////		List<Producto> productos = productoDao.consultaPorNombreDeCategoria("CELULARES");
+//		BigDecimal precio = productoDao.consultarPrecioPorNombreDeProducto("Samsung");
+//		System.out.println(precio);
 //		productos.forEach(prod->System.out.println(prod.getDescripcion()));
 	}
 

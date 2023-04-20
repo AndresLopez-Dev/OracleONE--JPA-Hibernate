@@ -19,6 +19,15 @@ public class ProductoDAO {
 		this.em.persist(producto);
 	}
 	
+	public void actualizar (Producto producto) {
+		this.em.merge(producto);
+	}
+	
+	public void remover(Producto producto) {
+		producto = this.em.merge(producto);
+		this.em.remove(producto);
+	}
+	
 	public Producto consultaPorId(Long id) {
 		return em.find(Producto.class, id);
 	}
@@ -39,7 +48,6 @@ public class ProductoDAO {
 	}
 	
 	public BigDecimal consultarPrecioPorNombreDeProducto(String nombre) {
-		String jpql = "SELECT P.precio FROM Producto AS P WHERE P.nombre=:nombre";
-		return em.createQuery(jpql,BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
+		return em.createNamedQuery("Producto.consultaDePrecio",BigDecimal.class).setParameter("nombre", nombre).getSingleResult();
 	}
 }
